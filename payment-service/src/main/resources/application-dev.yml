@@ -3,16 +3,25 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/shop
+    url: jdbc:postgresql://localhost:5432/shop_payment
     username: shop
     password: shop
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: payment-service-group
+      properties:
+        spring.json.trusted.packages: "*"
+    producer:
+      properties:
+        spring.json.add.type.headers: false
 
 management:
   endpoints:
     web:
       exposure:
-        include: health,info
+        include: health
