@@ -3,13 +3,18 @@ server:
 
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/shop
+    url: jdbc:postgresql://localhost:5432/shop_auth
     username: shop
     password: shop
   jpa:
     hibernate:
       ddl-auto: update
     show-sql: true
+
+security:
+  jwt:
+    secret: 018dad94d50cd8a77feb9fa96ae458e0840a8d81cbd01a9c974e52c42c3f099821956beab7a92336e0733d2349c2bdc3bd31b27a9e80f17a7b2878860d53a640
+    expiration-ms: 86400000 # 1 day
 
 management:
   endpoints:
