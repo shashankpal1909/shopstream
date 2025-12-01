@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8079
 
 spring:
   datasource:
@@ -21,3 +21,10 @@ management:
     web:
       exposure:
         include: health,info
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+    register-with-eureka: true
+    fetch-registry: true
